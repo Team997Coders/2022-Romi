@@ -49,9 +49,9 @@ public class RobotContainer {
     configureButtonBindings();
 
     autoModeSwitcher.setDefaultOption("None", new InstantCommand());
-    autoModeSwitcher.addOption("Test Durn", new AutoRotate(m_drive,90,3000));
-    autoModeSwitcher.addOption("Test Drive", new AutoDistance(m_drive,24,3000));
-
+    autoModeSwitcher.addOption("Test Turn", new AutoRotate(m_drive,90,3000));
+    autoModeSwitcher.addOption("Test Drive", new AutoDistance(m_drive,0.25,3000));
+    
     Shuffleboard.getTab("Autonomous").add(autoModeSwitcher);
   }
 

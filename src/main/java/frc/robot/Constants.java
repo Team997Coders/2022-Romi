@@ -28,7 +28,7 @@ public final class Constants {
     public static class Controller {
 
         public static final int CONTROLLER_0 = 0,
-                AXIS_LIN = 4, AXIS_ROT = 1,
+                AXIS_LIN = 1, AXIS_ROT = 4,
                 LEFT_BUMPER = 5, RIGHT_BUMPER = 6,
                 A_BUTTON = 1, B_BUTTON = 2, X_BUTTON = 3, Y_BUTTON = 4,
                 UP_ARROW = 5, RIGHT_ARROW = 6, DOWN_ARROW = 7, LEFT_ARROW = 8;
@@ -39,10 +39,10 @@ public final class Constants {
         public static final double DRIVE_MODIFIER = 1.0,
                 TURN_MODIFIER = -1.0,
 
-                AUTO_DISTANCE_KP = 0.1, AUTO_DISTANCE_KI = 0, AUTO_DISTANCE_KD = 0,
-                AUTO_DISTANCE_MAX_V = 100, AUTO_DISTANCE_MAX_A = 100,
+                AUTO_DISTANCE_KP = 1.25, AUTO_DISTANCE_KI = 0, AUTO_DISTANCE_KD = 0,
+                AUTO_DISTANCE_MAX_V = 0.5, AUTO_DISTANCE_MAX_A = 0.5,
 
-                AUTO_ROTATE_KP = 0.012, AUTO_ROTATE_KI = 0.002, AUTO_ROTATE_KD = 0,
+                AUTO_ROTATE_KP = 0.005, AUTO_ROTATE_KI = 0.002, AUTO_ROTATE_KD = 0,
                 AUTO_ROTATE_MAX_V = 360, AUTO_ROTATE_MAX_A = 180,
 
                 DRIVE_ENCODER_CPR = 1440,

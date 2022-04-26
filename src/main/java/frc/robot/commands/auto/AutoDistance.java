@@ -44,9 +44,7 @@ public class AutoDistance extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    measurement = (m_drive.getRightSensorPosition() / Constants.Drive.DRIVE_METERS_PER_COUNT
-        + m_drive.getLeftSensorPosition() * Constants.Drive.DRIVE_METERS_PER_COUNT) / 2;
-
+    measurement = m_drive.getRightSensorPosition();
     m_drive.basicMove(m_controller.calculate(measurement), m_controller.calculate(measurement));
   }
 

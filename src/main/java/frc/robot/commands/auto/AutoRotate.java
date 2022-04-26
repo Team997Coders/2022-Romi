@@ -28,6 +28,7 @@ public class AutoRotate extends CommandBase {
         Constants.Drive.AUTO_ROTATE_KD,
         new Constraints(Constants.Drive.AUTO_ROTATE_MAX_V,
             Constants.Drive.AUTO_ROTATE_MAX_A));
+    m_controller.enableContinuousInput(-180, 180);
     m_rotation = rotationDegrees;
   }
 

@@ -28,12 +28,14 @@ public class Drivetrain extends SubsystemBase {
 
     m_rightSpark = new Spark(Constants.Ports.FRONT_RIGHT_MOTOR_PORT); // constructs motor controllers and
     m_leftSpark = new Spark(Constants.Ports.FRONT_LEFT_MOTOR_PORT); // assigns them to the correct device ID
+    m_rightSpark.setInverted(true);
+    m_leftSpark.setInverted(false);
 
     m_rightEncoder = new Encoder(Constants.Ports.RIGHT_ENCODER_PORT_A, Constants.Ports.RIGHT_ENCODER_PORT_B);
     m_leftEncoder = new Encoder(Constants.Ports.LEFT_ENCODER_PORT_A, Constants.Ports.LEFT_ENCODER_PORT_B);
 
     m_rightEncoder.setDistancePerPulse(Constants.Drive.DRIVE_METERS_PER_COUNT);
-    m_rightEncoder.setDistancePerPulse(Constants.Drive.DRIVE_METERS_PER_COUNT);
+    m_leftEncoder.setDistancePerPulse(Constants.Drive.DRIVE_METERS_PER_COUNT);
 
     m_gyro = new RomiGyro();
 
@@ -73,15 +75,13 @@ public class Drivetrain extends SubsystemBase {
   public void periodic() {
     m_odometry.update(new Rotation2d(Math.toRadians(getGyroAngle())),
         (m_leftEncoder.getDistance()), (m_rightEncoder.getDistance()));
-
     m_field2d.setRobotPose(m_odometry.getPoseMeters());
-
     SmartDashboard.putData("Field",m_field2d);
     SmartDashboard.putNumber("Rotation",m_odometry.getPoseMeters().getRotation().getDegrees());
-    SmartDashboard.putNumber("Translation X",m_odometry.getPoseMeters().getTranslation().getX());
-    SmartDashboard.putNumber("Translation Y",m_odometry.getPoseMeters().getTranslation().getY());
+    SmartDashboard.putNumber("Position X",m_odometry.getPoseMeters().getTranslation().getX());
+    SmartDashboard.putNumber("Position Y",m_odometry.getPoseMeters().getTranslation().getY());
 
-    SmartDashboard.putNumber("L Motor",m_leftEncoder.getRate());
-    SmartDashboard.putNumber("R Motor",m_rightEncoder.getRate());
+    SmartDashboard.putNumber("L Motor",m_leftEncoder.getDistance());
+    SmartDashboard.putNumber("R Motor",m_rightEncoder.getDistance());
   }
 }
