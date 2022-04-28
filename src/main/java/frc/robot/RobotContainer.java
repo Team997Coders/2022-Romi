@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.auto.AutoDistance;
 import frc.robot.commands.auto.AutoRotate;
+import frc.robot.commands.auto.PathFollow;
 import frc.robot.commands.drive.ArcadeDrive;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -73,6 +74,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return autoModeSwitcher.getSelected();
+    //return autoModeSwitcher.getSelected();
+    return new PathFollow(m_drive);
   }
 }

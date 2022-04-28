@@ -45,10 +45,17 @@ public final class Constants {
                 AUTO_ROTATE_KP = 0.005, AUTO_ROTATE_KI = 0.002, AUTO_ROTATE_KD = 0,
                 AUTO_ROTATE_MAX_V = 360, AUTO_ROTATE_MAX_A = 180,
 
+                WHEEL_VELOCITY_KP = 1, WHEEL_VELOCITY_KI = 0, WHEEL_VELOCITY_KD = 0,
+                
+                RAMSETE_B = 2.0, RAMSETE_ZETA = 0.7,
+
+                PATH_FOLLOW_MAX_M_PER_S = 1, PATH_FOLLOW_MAX_M_PER_SEC_SQUARED = 1,
+
                 DRIVE_ENCODER_CPR = 1440,
                 DRIVE_WHEEL_DIA_CM = 6.985,
                 DRIVE_GEARBOX_RATIO = 1,
                 DRIVE_METERS_PER_COUNT = 
-                ((DRIVE_WHEEL_DIA_CM/100)*Math.PI)/(DRIVE_ENCODER_CPR*DRIVE_GEARBOX_RATIO);
+                ((DRIVE_WHEEL_DIA_CM/100)*Math.PI)/(DRIVE_ENCODER_CPR*DRIVE_GEARBOX_RATIO),
+                DRIVE_TRACK_WIDTH_CM = 14.1;
     }
 }

@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.wpilibj.Encoder;
@@ -71,6 +72,24 @@ public class Drivetrain extends SubsystemBase {
     return m_leftEncoder.getDistance();
   }
 
+  public double getRightAngularVMPS() {
+    return m_rightEncoder.getRate();
+  }
+
+  public double getLeftAngularVMPS() {
+    return m_leftEncoder.getRate();
+  }
+  
+  public Pose2d getPose2d() {
+    m_odometry.update(new Rotation2d(Math.toRadians(getGyroAngle())),
+        (m_leftEncoder.getDistance()), (m_rightEncoder.getDistance()));
+    return m_odometry.getPoseMeters();
+  }
+
+  public void resetPose() {
+    m_odometry.resetPosition(new Pose2d(0, 0, new Rotation2d(0)), new Rotation2d(0));
+  }
+  
   @Override
   public void periodic() {
     m_odometry.update(new Rotation2d(Math.toRadians(getGyroAngle())),
